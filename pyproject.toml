@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "small-brain"
+version = "0.1.0"
+description = ""
+authors = [
+  { name = "erik bergsten", email = "erikbergsten94@gmail.com" }
+]
+requires-python = ">=3.8"
+dependencies = [
+  "openai[aiohttp]",
+  "pydantic",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["sb"]
+
+[project.urls]
+Homepage = ""
