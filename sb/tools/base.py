@@ -27,7 +27,6 @@ class Tool():
         logger.info(f"Calling {self.name}")
 
     async def run(self, tool_call):
-        print(self.name, "called with", tool_call)
         args = self.param_class.model_validate_json(tool_call.arguments)
         result = await self.execute(args)
         id = tool_call.call_id

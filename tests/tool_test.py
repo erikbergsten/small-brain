@@ -18,7 +18,7 @@ my_greeter = Greeter()
 if __name__ == '__main__':
     from sb import Agent, ChatAgent, stop
     import asyncio
-    agent = ChatAgent("You are a helpful assistant.", tools=[my_greeter])
+    agent = Agent("You are a helpful assistant.", tools=[my_greeter])
 
     result = asyncio.run(agent.query("greet the world!"))
     print("got:", agent.messages)
