@@ -1,2 +1,2 @@
-from .base import Tool, schema
+from .base import Tool
 from .tool_box import ToolBox
