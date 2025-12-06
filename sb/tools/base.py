@@ -23,11 +23,12 @@ class Tool():
     def get_json_schema(self, indent=None):
         return json.dumps(self.get_schema(), indent=indent)
 
-    def log(self):
+    def log(self, args):
         logger.info(f"Calling {self.name}")
 
     async def run(self, tool_call):
         args = self.param_class.model_validate_json(tool_call.arguments)
+        self.log(args)
         result = await self.execute(args)
         id = tool_call.call_id
         if result == None:
@@ -40,6 +41,7 @@ class Tool():
 
     async def run_chat(self, tool_call):
         args = self.param_class.model_validate_json(tool_call.function.arguments)
+        self.log(args)
         result = await self.execute(args)
         if result == None:
             result = "no return value"
