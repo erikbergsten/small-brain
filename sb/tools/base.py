@@ -25,7 +25,7 @@ class Tool():
 
     def log(self, args):
         if hasattr(self, "log_message"):
-            logger.info(f"Calling {self.get_name()} with {self.log_message()}")
+            logger.info(f"Calling {self.get_name()} with {self.log_message(args)}")
         else:
             logger.info(f"Calling {self.get_name()}")
 
