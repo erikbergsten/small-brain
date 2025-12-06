@@ -4,7 +4,7 @@ class ToolBox:
     def __init__(self, tools):
         self.tools = {}
         for tool in tools:
-            self.tools[tool.name] = tool
+            self.tools[tool.get_name()] = tool
 
     def get_schemas(self):
         return list(map(lambda x: x.get_schema(), self.tools.values()))

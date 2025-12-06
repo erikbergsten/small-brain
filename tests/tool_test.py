@@ -7,14 +7,13 @@ class GreeterArgs(BaseModel):
 class Greeter(Tool):
     """a tool for friendly greetings"""
     def __init__(self):
-        super().__init__("greeter", GreeterArgs)
+        super().__init__(GreeterArgs)
         self.calls = 0
 
     async def execute(self, args):
         print("Greeting:", args.message)
 
 my_greeter = Greeter()
-
 
 if __name__ == '__main__':
     from sb import Agent, ChatAgent, stop

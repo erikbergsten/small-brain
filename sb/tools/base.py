@@ -6,8 +6,7 @@ logger.setLevel(logging.INFO)
 
 class Tool():
 
-    def __init__(self, name, param_class):
-        self.name = name
+    def __init__(self, param_class):
         self.param_class = param_class
 
     def get_name(self):
@@ -16,7 +15,7 @@ class Tool():
     def get_schema(self):
         return {
             "type": "function",
-            "name": self.name,
+            "name": self.get_name(),
             "description": self.__class__.__doc__,
             "parameters": self.param_class.model_json_schema()
         }
